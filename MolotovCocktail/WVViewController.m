@@ -7,13 +7,13 @@
 //
 
 #import "WVViewController.h"
-#import "WVMyScene.h"
+#import "WVTitleScene.h"
 
 @implementation WVViewController
 
-- (void)viewDidLoad
+- (void)viewWillLayoutSubviews
 {
-    [super viewDidLoad];
+    [super viewWillLayoutSubviews];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -21,11 +21,15 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [WVMyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [WVTitleScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+}
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 - (BOOL)shouldAutorotate
