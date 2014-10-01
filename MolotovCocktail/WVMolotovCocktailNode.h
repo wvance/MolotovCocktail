@@ -12,7 +12,6 @@
 
 + (instancetype) cocktailAtPosition:(CGPoint)position;
 -(void) moveTowardsPosition:(CGPoint)position;
-
 -(void) performTap;
 
 @end

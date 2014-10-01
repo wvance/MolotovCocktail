@@ -14,13 +14,12 @@
     WVGameOverNode *gameOver = [self node];
     
     SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-CondensedBlack"];
-    
     gameOverLabel.name = @"GameOver";
     gameOverLabel.text = @"Game Over";
     gameOverLabel.fontSize = 48;
     gameOverLabel.position = position;
     [gameOver addChild:gameOverLabel];
-    
+
     return gameOver;
 }
 

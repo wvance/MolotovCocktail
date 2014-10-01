@@ -12,11 +12,15 @@
 
 @property (nonatomic) NSInteger lives;
 @property (nonatomic) NSInteger score;
+@property (nonatomic) NSInteger ammo;
+
 
 + (instancetype) hudAtPosition:(CGPoint)position inFrame:(CGRect)frame;
 
 
 - (void) addPoints: (NSInteger)points; 
 - (BOOL) loseLife;
+- (BOOL) loseAmmo;
+- (void) gainAmmo: (NSInteger)ammo;
 
 @end

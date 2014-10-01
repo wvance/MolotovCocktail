@@ -24,6 +24,7 @@
     [hud addChild:molotovHead];
     
     hud.lives = WVMaxLives;
+    hud.ammo = WVStartAmmo;
     
     SKSpriteNode *lastLifeBar;
     
@@ -54,29 +55,52 @@
     
     [hud addChild:scoreLabel];
     
+    SKLabelNode *ammoLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-CondensedBlack"];
+    ammoLabel.name = @"Ammo";
+    ammoLabel.text = [NSString stringWithFormat:@"%d",WVStartAmmo];
+    ammoLabel.fontSize = 24;
+    ammoLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    ammoLabel.position  = CGPointMake(frame.size.width - 200, -10);
+    [hud addChild:ammoLabel];
+    
     return hud;
 }
 
 - (void) addPoints: (NSInteger)points{
     self.score += points;
-    
     SKLabelNode *scoreLabel = (SKLabelNode*)[self childNodeWithName:@"Score"];
-    scoreLabel.text = [NSString stringWithFormat:@"%d",self.score];
+    scoreLabel.text = [NSString stringWithFormat:@"%ld", (long) self.score];
 }
+
 
 - (BOOL) loseLife {
     if ( self.lives > 0) {
-        NSString *lifeNodeName = [NSString stringWithFormat:@"Life%d", self.lives];
+        NSString *lifeNodeName = [NSString stringWithFormat:@"Life%ld", (long) self.lives];
         SKNode *lifeToRemove = [self childNodeWithName:lifeNodeName];
         
         [lifeToRemove removeFromParent];
         
         self.lives--;
         
-        NSLog(@"Life Loss # %d",self.lives);
+        NSLog(@"Life Loss # %ld", (long) self.lives);
     }
     return self.lives == 0;
 }
+- (BOOL) loseAmmo{
+    if (self.ammo > 0){
+        self.ammo--;
+        SKLabelNode *ammoLabel = (SKLabelNode*)[self childNodeWithName:@"Ammo"];
+        ammoLabel.text = [NSString stringWithFormat:@"%ld", (long) self.ammo];
+        NSLog(@"Ammo # %ld", (long) self.ammo);
+    }
+    return self.ammo == 0;
+}
 
+-(void) gainAmmo: (NSInteger) ammo{
+    self.ammo += ammo;
+    SKLabelNode *ammoLabel = (SKLabelNode*)[self childNodeWithName:@"Ammo"];
+    ammoLabel.text = [NSString stringWithFormat:@"%ld", (long) self.ammo];
 
+    NSLog(@"Total Ammo! # %ld", (long) self.ammo);
+}
 @end

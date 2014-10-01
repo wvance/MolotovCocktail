@@ -7,16 +7,17 @@
 //
 
 #import "WVMolotovCharacterNode.h"
+#import "WVUtil.h"
 
 @implementation WVMolotovCharacterNode
 
 
 + (instancetype) characterAtPosition:(CGPoint)position{
-    WVMolotovCharacterNode *Molotov = [self spriteNodeWithImageNamed:@"Molotov_Neutral"];
+    WVMolotovCharacterNode *Molotov = [self spriteNodeWithImageNamed:@"Molotov_Step1"];
     Molotov.name = @"Molotov";
     Molotov.zPosition = 9;
-    
-    Molotov.xScale = 3;
+
+    Molotov.                                   xScale = 3;
     Molotov.yScale = 3;
     
     Molotov.position = position;
@@ -34,9 +35,22 @@
     SKAction *cocktailAnimation = [SKAction animateWithTextures:textures timePerFrame:.3];
     SKAction *cocktailRepeat = [SKAction repeatActionForever:cocktailAnimation];
     [Molotov runAction:cocktailRepeat];
-    
+    [Molotov setupPhysicsBody];
     
     return Molotov;
 }
+
+- (void) setupPhysicsBody{
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.physicsBody.categoryBitMask = WVCollisionCategorySelf;
+    self.physicsBody.affectedByGravity = YES;
+    self.physicsBody.dynamic = YES;
+    self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategorySide | WVCollisionCategoryAmmo;
+//    CGVector impulse = CGVectorMake(1.0,1.0);
+//    [self.physicsBody applyImpulse:impulse];
+    self.physicsBody.allowsRotation = NO;
+    self.physicsBody.mass = 100;
+}
+
 
 @end

@@ -5,7 +5,7 @@
 //  Created by Wesley Vance on 8/7/14.
 //  Copyright (c) 2014 Wesley Vance. All rights reserved.
 //
-
+#import <Parse/Parse.h>
 #import "WVAppDelegate.h"
 
 @implementation WVAppDelegate
@@ -13,6 +13,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"0XfoZ8xQq5chjJlQUwJKWNcMpqk8kA5IHRMIZBTR"
+                  clientKey:@"LSxmQRM5QAI0m1KxN6or474sYu4sWWktAAbLKP34"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return YES;
 }
 							

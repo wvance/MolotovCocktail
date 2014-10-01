@@ -7,8 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <CoreMotion/CoreMotion.h>
+
+CMMotionManager *motionManager;
 
 @interface WVGamePlayScene : SKScene <SKPhysicsContactDelegate>
-    
+
 
 @end

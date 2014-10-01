@@ -12,7 +12,7 @@
 @implementation WVGroundNode
 
 + (instancetype) groundWithSize:(CGSize)size{
-    WVGroundNode *ground = [self spriteNodeWithColor:[SKColor blackColor] size:size];
+    WVGroundNode *ground = [self spriteNodeWithColor:[SKColor clearColor] size:size];
     ground.name = @"Ground";
     ground.position = CGPointMake(size.width /2, size.height/2);
     
@@ -28,6 +28,6 @@
     
     self.physicsBody.categoryBitMask = WVCollisionCategoryGround;
     //self.physicsBody.collisionBitMask = WVCollisionCategoryCocktail;
-    self.physicsBody.contactTestBitMask = WVCollisionCategoryProjectile | WVCollisionCategoryCocktail;
+    self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategoryCocktail | WVCollisionCategoryAmmo;
 }
 @end

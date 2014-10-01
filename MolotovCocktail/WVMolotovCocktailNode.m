@@ -22,11 +22,6 @@
     cocktail.name = @"CockTail";
     cocktail.zPosition = 8;
     
-//    NSArray *textures = @[[SKTexture textureWithImageNamed:@"50px-MolotovCocktail"]];
-//    
-//    SKAction *cocktailAnimation = [SKAction animateWithTextures:textures timePerFrame:.05];
-//    SKAction *cocktailRepeat = [SKAction repeatActionForever:cocktailAnimation];
-//    [cocktail runAction:cocktailRepeat];
     [cocktail setupAnimation];
     [cocktail setupPhysicsBody];
     return cocktail;
@@ -37,28 +32,14 @@
     self.physicsBody.categoryBitMask = WVCollisionCategoryCocktail;
     self.physicsBody.affectedByGravity = NO;
 
-//    self.physicsBody.collisionBitMask = WVCollisionCategoryPlatform | WVCollisionCategoryGround;
-    self.physicsBody.contactTestBitMask = WVCollisionCategoryProjectile |WVCollisionCategoryGround | WVCollisionCategoryPlatform;
+    self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategoryGround | WVCollisionCategoryPlatform;
+    self.physicsBody.mass = 10;
+
 }
 
 -(void) performTap{
     [self runAction:self.tapAction];
 }
-
-//- (SKAction *) tapAction {
-//    
-//    if (_tapAction != nil){
-//        return _tapAction;
-//    }
-//    
-//    //ANNIMATE ON TAP WITHIN A NODE
-//    NSArray *textures = @[[SKTexture textureWithImageNamed:@"MolotovCocktail_Throw"],
-//                           [SKTexture textureWithImageNamed:@"MolotovCocktail_Normal"]];
-//
-//    _tapAction = [SKAction animateWithTextures:textures timePerFrame: .1];
-//    return _tapAction;
-//    
-//}
 
 - (void) setupAnimation {
     NSArray *texture = @[[SKTexture textureWithImageNamed:@"MolotovCocktail_Throw1"],
@@ -88,10 +69,8 @@
     
     float distanceA = pointOffScreen.y - self.position.y;
     float distanceB = pointOffScreen.x - self.position.x;
-    
     float distanceC = sqrtf(powf(distanceA, 2) + powf(distanceB,2));
     
-    //Imported from constants file
     float time = distanceC/WVCocktailThrowSpeed;
     
     SKAction *moveCocktail = [SKAction moveTo: pointOffScreen duration:time];
