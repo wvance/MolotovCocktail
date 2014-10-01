@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B38960319AF6F790086E193 /* Molotov_Walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B38960219AF6F790086E193 /* Molotov_Walking.atlas */; };
 		2B43B0D919942F4F00BF05FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B43B0D819942F4F00BF05FE /* Foundation.framework */; };
 		2B43B0DB19942F4F00BF05FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B43B0DA19942F4F00BF05FE /* CoreGraphics.framework */; };
 		2B43B0DD19942F4F00BF05FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B43B0DC19942F4F00BF05FE /* UIKit.framework */; };
@@ -31,10 +32,23 @@
 		2B5B707819AE438B00A690DA /* WVGameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5B707719AE438B00A690DA /* WVGameOverNode.m */; };
 		2B7583921997F8C600BBC6DE /* Sprite.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B7583911997F8C600BBC6DE /* Sprite.atlas */; };
 		2B7583941997FA0A00BBC6DE /* Debris.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B7583931997FA0A00BBC6DE /* Debris.atlas */; };
+		2B85C1D819DC51E000C58CFB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1D719DC51E000C58CFB /* Parse.framework */; };
+		2B85C1DA19DC520200C58CFB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1D919DC520200C58CFB /* AudioToolbox.framework */; };
+		2B85C1DC19DC520700C58CFB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1DB19DC520700C58CFB /* CFNetwork.framework */; };
+		2B85C1DE19DC521500C58CFB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1DD19DC521500C58CFB /* CoreLocation.framework */; };
+		2B85C1E019DC522100C58CFB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1DF19DC522100C58CFB /* libz.dylib */; };
+		2B85C1E219DC522700C58CFB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1E119DC522700C58CFB /* MobileCoreServices.framework */; };
+		2B85C1E419DC522D00C58CFB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1E319DC522D00C58CFB /* QuartzCore.framework */; };
+		2B85C1E619DC523200C58CFB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1E519DC523200C58CFB /* Security.framework */; };
+		2B85C1E819DC523600C58CFB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1E719DC523600C58CFB /* StoreKit.framework */; };
+		2B85C1EA19DC523C00C58CFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1E919DC523C00C58CFB /* SystemConfiguration.framework */; };
+		2B85C1EE19DC540B00C58CFB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1ED19DC540B00C58CFB /* Bolts.framework */; };
 		2BB213E4199747F300678607 /* WVGroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB213E3199747F300678607 /* WVGroundNode.m */; };
 		2BC0E93E199523EA00F8369E /* WVMolotovCocktailNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0E93D199523EA00F8369E /* WVMolotovCocktailNode.m */; };
 		2BC0E94319955F1B00F8369E /* WVMolotovCharacterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC0E94219955F1B00F8369E /* WVMolotovCharacterNode.m */; };
 		2BC7103B19A67E2800879CA6 /* WVHudNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7103A19A67E2800879CA6 /* WVHudNode.m */; };
+		2BD0980919DBBBFF008DE598 /* WVAmmoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0980819DBBBFF008DE598 /* WVAmmoNode.m */; };
+		2BD211B919AF7CE2006FAFCE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD211B819AF7CE2006FAFCE /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B38960219AF6F790086E193 /* Molotov_Walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Molotov_Walking.atlas; sourceTree = "<group>"; };
 		2B43B0D519942F4F00BF05FE /* MolotovCocktail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MolotovCocktail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B43B0D819942F4F00BF05FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B43B0DA19942F4F00BF05FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +98,17 @@
 		2B5B707719AE438B00A690DA /* WVGameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVGameOverNode.m; sourceTree = "<group>"; };
 		2B7583911997F8C600BBC6DE /* Sprite.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprite.atlas; sourceTree = "<group>"; };
 		2B7583931997FA0A00BBC6DE /* Debris.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Debris.atlas; sourceTree = "<group>"; };
+		2B85C1D719DC51E000C58CFB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		2B85C1D919DC520200C58CFB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2B85C1DB19DC520700C58CFB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2B85C1DD19DC521500C58CFB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2B85C1DF19DC522100C58CFB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2B85C1E119DC522700C58CFB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2B85C1E319DC522D00C58CFB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2B85C1E519DC523200C58CFB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2B85C1E719DC523600C58CFB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2B85C1E919DC523C00C58CFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2B85C1ED19DC540B00C58CFB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2BB213E2199747F300678607 /* WVGroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVGroundNode.h; sourceTree = "<group>"; };
 		2BB213E3199747F300678607 /* WVGroundNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVGroundNode.m; sourceTree = "<group>"; };
 		2BC0E93C199523EA00F8369E /* WVMolotovCocktailNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVMolotovCocktailNode.h; sourceTree = "<group>"; };
@@ -91,6 +117,9 @@
 		2BC0E94219955F1B00F8369E /* WVMolotovCharacterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVMolotovCharacterNode.m; sourceTree = "<group>"; };
 		2BC7103919A67E2800879CA6 /* WVHudNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVHudNode.h; sourceTree = "<group>"; };
 		2BC7103A19A67E2800879CA6 /* WVHudNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVHudNode.m; sourceTree = "<group>"; };
+		2BD0980719DBBBFF008DE598 /* WVAmmoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVAmmoNode.h; sourceTree = "<group>"; };
+		2BD0980819DBBBFF008DE598 /* WVAmmoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVAmmoNode.m; sourceTree = "<group>"; };
+		2BD211B819AF7CE2006FAFCE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +127,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B43B0DB19942F4F00BF05FE /* CoreGraphics.framework in Frameworks */,
-				2B43B0DD19942F4F00BF05FE /* UIKit.framework in Frameworks */,
+				2B85C1D819DC51E000C58CFB /* Parse.framework in Frameworks */,
 				2B43B0DF19942F4F00BF05FE /* SpriteKit.framework in Frameworks */,
+				2B85C1EE19DC540B00C58CFB /* Bolts.framework in Frameworks */,
+				2B85C1EA19DC523C00C58CFB /* SystemConfiguration.framework in Frameworks */,
+				2B85C1E819DC523600C58CFB /* StoreKit.framework in Frameworks */,
+				2B85C1E619DC523200C58CFB /* Security.framework in Frameworks */,
+				2B85C1E419DC522D00C58CFB /* QuartzCore.framework in Frameworks */,
+				2B85C1E219DC522700C58CFB /* MobileCoreServices.framework in Frameworks */,
+				2B85C1E019DC522100C58CFB /* libz.dylib in Frameworks */,
+				2B85C1DE19DC521500C58CFB /* CoreLocation.framework in Frameworks */,
+				2B43B0DB19942F4F00BF05FE /* CoreGraphics.framework in Frameworks */,
+				2B85C1DC19DC520700C58CFB /* CFNetwork.framework in Frameworks */,
+				2B85C1DA19DC520200C58CFB /* AudioToolbox.framework in Frameworks */,
+				2BD211B919AF7CE2006FAFCE /* CoreMotion.framework in Frameworks */,
+				2B43B0DD19942F4F00BF05FE /* UIKit.framework in Frameworks */,
 				2B43B0D919942F4F00BF05FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +181,18 @@
 		2B43B0D719942F4F00BF05FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B85C1ED19DC540B00C58CFB /* Bolts.framework */,
+				2B85C1E919DC523C00C58CFB /* SystemConfiguration.framework */,
+				2B85C1E719DC523600C58CFB /* StoreKit.framework */,
+				2B85C1E519DC523200C58CFB /* Security.framework */,
+				2B85C1E319DC522D00C58CFB /* QuartzCore.framework */,
+				2B85C1E119DC522700C58CFB /* MobileCoreServices.framework */,
+				2B85C1DF19DC522100C58CFB /* libz.dylib */,
+				2B85C1DD19DC521500C58CFB /* CoreLocation.framework */,
+				2B85C1DB19DC520700C58CFB /* CFNetwork.framework */,
+				2B85C1D919DC520200C58CFB /* AudioToolbox.framework */,
+				2B85C1D719DC51E000C58CFB /* Parse.framework */,
+				2BD211B819AF7CE2006FAFCE /* CoreMotion.framework */,
 				2B43B0D819942F4F00BF05FE /* Foundation.framework */,
 				2B43B0DA19942F4F00BF05FE /* CoreGraphics.framework */,
 				2B43B0DC19942F4F00BF05FE /* UIKit.framework */,
@@ -152,6 +205,7 @@
 		2B43B0E019942F4F00BF05FE /* MolotovCocktail */ = {
 			isa = PBXGroup;
 			children = (
+				2B38960219AF6F790086E193 /* Molotov_Walking.atlas */,
 				2B7583931997FA0A00BBC6DE /* Debris.atlas */,
 				2B7583911997F8C600BBC6DE /* Sprite.atlas */,
 				2B4B113519966481001C38CF /* Boom.atlas */,
@@ -172,14 +226,16 @@
 				2B4B113919973665001C38CF /* WVUtil.m */,
 				2B4B1141199739AD001C38CF /* WVEnemyNode.h */,
 				2B4B1142199739AD001C38CF /* WVEnemyNode.m */,
+				2BD0980719DBBBFF008DE598 /* WVAmmoNode.h */,
+				2BD0980819DBBBFF008DE598 /* WVAmmoNode.m */,
 				2BC7103919A67E2800879CA6 /* WVHudNode.h */,
 				2BC7103A19A67E2800879CA6 /* WVHudNode.m */,
 				2B43B0F719942F4F00BF05FE /* Images.xcassets */,
 				2B43B0E119942F4F00BF05FE /* Supporting Files */,
-				2BC0E93C199523EA00F8369E /* WVMolotovCocktailNode.h */,
-				2BC0E93D199523EA00F8369E /* WVMolotovCocktailNode.m */,
 				2BC0E94119955F1B00F8369E /* WVMolotovCharacterNode.h */,
 				2BC0E94219955F1B00F8369E /* WVMolotovCharacterNode.m */,
+				2BC0E93C199523EA00F8369E /* WVMolotovCocktailNode.h */,
+				2BC0E93D199523EA00F8369E /* WVMolotovCocktailNode.m */,
 				2B4B113219966409001C38CF /* WVExplosionNode.h */,
 				2B4B113319966409001C38CF /* WVExplosionNode.m */,
 			);
@@ -295,6 +351,7 @@
 				2B43B0E519942F4F00BF05FE /* InfoPlist.strings in Resources */,
 				2B43B0F819942F4F00BF05FE /* Images.xcassets in Resources */,
 				2B4B113619966481001C38CF /* Boom.atlas in Resources */,
+				2B38960319AF6F790086E193 /* Molotov_Walking.atlas in Resources */,
 				2B43B0EE19942F4F00BF05FE /* Main.storyboard in Resources */,
 				2B7583941997FA0A00BBC6DE /* Debris.atlas in Resources */,
 				2B7583921997F8C600BBC6DE /* Sprite.atlas in Resources */,
@@ -320,6 +377,7 @@
 				2B43B0E719942F4F00BF05FE /* main.m in Sources */,
 				2B4B113A19973665001C38CF /* WVUtil.m in Sources */,
 				2BC0E94319955F1B00F8369E /* WVMolotovCharacterNode.m in Sources */,
+				2BD0980919DBBBFF008DE598 /* WVAmmoNode.m in Sources */,
 				2BC0E93E199523EA00F8369E /* WVMolotovCocktailNode.m in Sources */,
 				2B5B707819AE438B00A690DA /* WVGameOverNode.m in Sources */,
 				2B43B0EB19942F4F00BF05FE /* WVAppDelegate.m in Sources */,
@@ -453,6 +511,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/Wesley/Downloads/parse-library-1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MolotovCocktail/MolotovCocktail-Prefix.pch";
 				INFOPLIST_FILE = "MolotovCocktail/MolotovCocktail-Info.plist";
@@ -467,6 +530,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/Wesley/Downloads/parse-library-1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MolotovCocktail/MolotovCocktail-Prefix.pch";
 				INFOPLIST_FILE = "MolotovCocktail/MolotovCocktail-Info.plist";
