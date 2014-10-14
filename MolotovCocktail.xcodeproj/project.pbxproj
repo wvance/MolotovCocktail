@@ -29,7 +29,10 @@
 		2B4B113619966481001C38CF /* Boom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B4B113519966481001C38CF /* Boom.atlas */; };
 		2B4B113A19973665001C38CF /* WVUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B113919973665001C38CF /* WVUtil.m */; };
 		2B4B1143199739AD001C38CF /* WVEnemyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B1142199739AD001C38CF /* WVEnemyNode.m */; };
+		2B4E161919ECE2E300D13EA3 /* WVBossNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E161819ECE2E300D13EA3 /* WVBossNode.m */; };
+		2B4E161F19ECF39800D13EA3 /* WVCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E161E19ECF39800D13EA3 /* WVCustomButton.m */; };
 		2B5B707819AE438B00A690DA /* WVGameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5B707719AE438B00A690DA /* WVGameOverNode.m */; };
+		2B748FF119E611E3008CC3B7 /* Astroid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B748FF019E611E3008CC3B7 /* Astroid.atlas */; };
 		2B7583921997F8C600BBC6DE /* Sprite.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B7583911997F8C600BBC6DE /* Sprite.atlas */; };
 		2B7583941997FA0A00BBC6DE /* Debris.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B7583931997FA0A00BBC6DE /* Debris.atlas */; };
 		2B85C1D819DC51E000C58CFB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B85C1D719DC51E000C58CFB /* Parse.framework */; };
@@ -94,8 +97,13 @@
 		2B4B113919973665001C38CF /* WVUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WVUtil.m; path = ../WVUtil.m; sourceTree = "<group>"; };
 		2B4B1141199739AD001C38CF /* WVEnemyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WVEnemyNode.h; path = ../WVEnemyNode.h; sourceTree = "<group>"; };
 		2B4B1142199739AD001C38CF /* WVEnemyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WVEnemyNode.m; path = ../WVEnemyNode.m; sourceTree = "<group>"; };
+		2B4E161719ECE2E300D13EA3 /* WVBossNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVBossNode.h; sourceTree = "<group>"; };
+		2B4E161819ECE2E300D13EA3 /* WVBossNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVBossNode.m; sourceTree = "<group>"; };
+		2B4E161D19ECF39800D13EA3 /* WVCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVCustomButton.h; sourceTree = "<group>"; };
+		2B4E161E19ECF39800D13EA3 /* WVCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVCustomButton.m; sourceTree = "<group>"; };
 		2B5B707619AE438B00A690DA /* WVGameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVGameOverNode.h; sourceTree = "<group>"; };
 		2B5B707719AE438B00A690DA /* WVGameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVGameOverNode.m; sourceTree = "<group>"; };
+		2B748FF019E611E3008CC3B7 /* Astroid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Astroid.atlas; sourceTree = "<group>"; };
 		2B7583911997F8C600BBC6DE /* Sprite.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprite.atlas; sourceTree = "<group>"; };
 		2B7583931997FA0A00BBC6DE /* Debris.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Debris.atlas; sourceTree = "<group>"; };
 		2B85C1D719DC51E000C58CFB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 		2B43B0E019942F4F00BF05FE /* MolotovCocktail */ = {
 			isa = PBXGroup;
 			children = (
+				2B748FF019E611E3008CC3B7 /* Astroid.atlas */,
 				2B38960219AF6F790086E193 /* Molotov_Walking.atlas */,
 				2B7583931997FA0A00BBC6DE /* Debris.atlas */,
 				2B7583911997F8C600BBC6DE /* Sprite.atlas */,
@@ -214,30 +223,14 @@
 				2B43B0EC19942F4F00BF05FE /* Main.storyboard */,
 				2B43B0EF19942F4F00BF05FE /* WVViewController.h */,
 				2B43B0F019942F4F00BF05FE /* WVViewController.m */,
-				2B43B11419942FE700BF05FE /* WVTitleScene.h */,
-				2B43B11519942FE700BF05FE /* WVTitleScene.m */,
-				2B43B1171994302200BF05FE /* WVGamePlayScene.h */,
-				2B43B1181994302200BF05FE /* WVGamePlayScene.m */,
-				2B5B707619AE438B00A690DA /* WVGameOverNode.h */,
-				2B5B707719AE438B00A690DA /* WVGameOverNode.m */,
-				2BB213E2199747F300678607 /* WVGroundNode.h */,
-				2BB213E3199747F300678607 /* WVGroundNode.m */,
 				2B4B113819973665001C38CF /* WVUtil.h */,
 				2B4B113919973665001C38CF /* WVUtil.m */,
-				2B4B1141199739AD001C38CF /* WVEnemyNode.h */,
-				2B4B1142199739AD001C38CF /* WVEnemyNode.m */,
-				2BD0980719DBBBFF008DE598 /* WVAmmoNode.h */,
-				2BD0980819DBBBFF008DE598 /* WVAmmoNode.m */,
-				2BC7103919A67E2800879CA6 /* WVHudNode.h */,
-				2BC7103A19A67E2800879CA6 /* WVHudNode.m */,
+				2B4E161D19ECF39800D13EA3 /* WVCustomButton.h */,
+				2B4E161E19ECF39800D13EA3 /* WVCustomButton.m */,
+				2B4E161B19ECF12300D13EA3 /* Scene */,
 				2B43B0F719942F4F00BF05FE /* Images.xcassets */,
 				2B43B0E119942F4F00BF05FE /* Supporting Files */,
-				2BC0E94119955F1B00F8369E /* WVMolotovCharacterNode.h */,
-				2BC0E94219955F1B00F8369E /* WVMolotovCharacterNode.m */,
-				2BC0E93C199523EA00F8369E /* WVMolotovCocktailNode.h */,
-				2BC0E93D199523EA00F8369E /* WVMolotovCocktailNode.m */,
-				2B4B113219966409001C38CF /* WVExplosionNode.h */,
-				2B4B113319966409001C38CF /* WVExplosionNode.m */,
+				2B4E161A19ECF07600D13EA3 /* Objects */,
 			);
 			path = MolotovCocktail;
 			sourceTree = "<group>";
@@ -269,6 +262,42 @@
 				2B43B10719942F4F00BF05FE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B4E161A19ECF07600D13EA3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2B4B1141199739AD001C38CF /* WVEnemyNode.h */,
+				2B4B1142199739AD001C38CF /* WVEnemyNode.m */,
+				2BD0980719DBBBFF008DE598 /* WVAmmoNode.h */,
+				2BD0980819DBBBFF008DE598 /* WVAmmoNode.m */,
+				2BC0E94119955F1B00F8369E /* WVMolotovCharacterNode.h */,
+				2BC0E94219955F1B00F8369E /* WVMolotovCharacterNode.m */,
+				2BC0E93C199523EA00F8369E /* WVMolotovCocktailNode.h */,
+				2BC0E93D199523EA00F8369E /* WVMolotovCocktailNode.m */,
+				2B4E161719ECE2E300D13EA3 /* WVBossNode.h */,
+				2B4E161819ECE2E300D13EA3 /* WVBossNode.m */,
+				2B4B113219966409001C38CF /* WVExplosionNode.h */,
+				2B4B113319966409001C38CF /* WVExplosionNode.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		2B4E161B19ECF12300D13EA3 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2B43B11419942FE700BF05FE /* WVTitleScene.h */,
+				2B43B11519942FE700BF05FE /* WVTitleScene.m */,
+				2B43B1171994302200BF05FE /* WVGamePlayScene.h */,
+				2B43B1181994302200BF05FE /* WVGamePlayScene.m */,
+				2B5B707619AE438B00A690DA /* WVGameOverNode.h */,
+				2B5B707719AE438B00A690DA /* WVGameOverNode.m */,
+				2BB213E2199747F300678607 /* WVGroundNode.h */,
+				2BB213E3199747F300678607 /* WVGroundNode.m */,
+				2BC7103919A67E2800879CA6 /* WVHudNode.h */,
+				2BC7103A19A67E2800879CA6 /* WVHudNode.m */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +383,7 @@
 				2B38960319AF6F790086E193 /* Molotov_Walking.atlas in Resources */,
 				2B43B0EE19942F4F00BF05FE /* Main.storyboard in Resources */,
 				2B7583941997FA0A00BBC6DE /* Debris.atlas in Resources */,
+				2B748FF119E611E3008CC3B7 /* Astroid.atlas in Resources */,
 				2B7583921997F8C600BBC6DE /* Sprite.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +406,7 @@
 				2B4B113419966409001C38CF /* WVExplosionNode.m in Sources */,
 				2B43B0E719942F4F00BF05FE /* main.m in Sources */,
 				2B4B113A19973665001C38CF /* WVUtil.m in Sources */,
+				2B4E161919ECE2E300D13EA3 /* WVBossNode.m in Sources */,
 				2BC0E94319955F1B00F8369E /* WVMolotovCharacterNode.m in Sources */,
 				2BD0980919DBBBFF008DE598 /* WVAmmoNode.m in Sources */,
 				2BC0E93E199523EA00F8369E /* WVMolotovCocktailNode.m in Sources */,
@@ -387,6 +418,7 @@
 				2B43B0F119942F4F00BF05FE /* WVViewController.m in Sources */,
 				2B43B1191994302200BF05FE /* WVGamePlayScene.m in Sources */,
 				2BB213E4199747F300678607 /* WVGroundNode.m in Sources */,
+				2B4E161F19ECF39800D13EA3 /* WVCustomButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

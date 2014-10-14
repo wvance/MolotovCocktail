@@ -8,6 +8,7 @@
 
 #import "WVTitleScene.h"
 #import "WVGamePlayScene.h"
+#import "WVCustomButton.h"
 
 @implementation WVTitleScene
 
@@ -15,6 +16,7 @@
     if (self = [super initWithSize:size]) {
         
         // This Loads up the initial background scene.
+        
         SKSpriteNode *backGround = [SKSpriteNode spriteNodeWithImageNamed:@"LoadScreen"];
         backGround.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
         [self addChild:backGround];
@@ -26,6 +28,7 @@
     WVGamePlayScene *gamePlayScene = [WVGamePlayScene sceneWithSize:self.frame.size];
     SKTransition *transition = [SKTransition fadeWithDuration:1.0];
     [self.view presentScene:gamePlayScene transition:transition];
+    
 }
 
 @end

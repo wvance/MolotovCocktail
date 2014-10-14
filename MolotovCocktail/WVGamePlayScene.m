@@ -20,7 +20,6 @@
 
 @import CoreMotion;
 @interface WVGamePlayScene ()
-
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 @property (nonatomic) NSTimeInterval timeSinceEnemyAdded;
 @property (nonatomic) NSTimeInterval timeSinceAmmoAdded;
@@ -34,14 +33,12 @@
 @property (nonatomic) BOOL noAmmo;
 @property (nonatomic) NSInteger finalScore;
 
-
 @end
 
 @implementation WVGamePlayScene
 
 // Motion manager for accelerometer
 CMMotionManager *_motionManager;
-
 // Acceleration value from accelerometer
 CGFloat _yAcceleration;
 
@@ -50,8 +47,8 @@ CGFloat _yAcceleration;
     self.lastUpdateTimeInterval = 0;
     self.timeSinceAmmoAdded = 0;
     self.timeSinceEnemyAdded = 0;
-    self.addEnemyTimeInterval = WVAddEnemyRate; //Base is 1.5, higher is slower
-    self.addAmmoTimeInterval = WVAddAmmoRate; //Base is 3, higher is slower
+    self.addEnemyTimeInterval = WVAddEnemyRate; //Base is 1.5, higher # is slower
+    self.addAmmoTimeInterval = WVAddAmmoRate; //Base is 3, higher # is slower
     
     self.totalGameTime = 0;
     self.minSpeed = WVEnemyMinSpeed;
@@ -64,79 +61,45 @@ CGFloat _yAcceleration;
         
         [self setupPhysicsBody];
         
-        // This Loads up the initial background scene.
+        //Add Initial Background
         SKSpriteNode *backGround = [SKSpriteNode spriteNodeWithImageNamed:@"level1background"];
-        
         backGround.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
         backGround.xScale = .5;
         backGround.yScale = .5;
-        
         [self addChild:backGround];
         
+        //Add Ground
         WVGroundNode *ground = [WVGroundNode groundWithSize:CGSizeMake(self.frame.size.width, 10)];
         [self addChild:ground];
         
+        //Add Main Character
         WVMolotovCharacterNode *mainCharacter = [WVMolotovCharacterNode characterAtPosition:CGPointMake(self.frame.size.width / 2, 35)];
         mainCharacter.xScale = 2;
         mainCharacter.yScale = 2;
-        
         [self addChild:mainCharacter];
         
+        //Add HUD
         WVHudNode *hud = [WVHudNode hudAtPosition:CGPointMake(0, self.frame.size.height - 20) inFrame:self.frame];
-        
         [self addChild:hud];
         
     
-        // CoreMotion
+        //SetUp CoreMotion for Movement
         _motionManager = [[CMMotionManager alloc] init];
-        // 1
         _motionManager.accelerometerUpdateInterval = 0.2;
-        // 2
         [_motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                 // 3
                                                  CMAcceleration acceleration = accelerometerData.acceleration;
-                                                 // 4
                                                  _yAcceleration = (acceleration.y * 0.75) + (_yAcceleration * 0.25);
                                              }];
-        
     }
-    
     return self;
-}
-
-- (void) logData{
-    
-    //DATA LOG
-    WVHudNode *hud = (WVHudNode*)[self childNodeWithName:@"HUD"];
-    self.finalScore = hud.score;
-    UIDevice * currentDevice = [UIDevice currentDevice];
-    NSString *deviceIDString = [currentDevice.identifierForVendor UUIDString]; //getting unique id for the user
-    
-    NSNumber *playerScoreNum = [NSNumber numberWithInt: hud.score]; //converting score into NSNumber format in which Parse expect the score
-    
-    PFObject *scoreObject = [PFObject objectWithClassName:@"PLAYERSCORE"];
-    [scoreObject setObject:deviceIDString forKey:@"USER_ID"]; //user's unique id
-    
-    [scoreObject setObject:playerScoreNum forKey:@"SCORE"]; //user's score
-    [scoreObject saveInBackground]; //saving in background, so our application is not halted while saving the score.
-    
-}
-
-- (void) didSimulatePhysics
-{
-    WVMolotovCharacterNode *mainCharacter = (WVMolotovCharacterNode*)[self childNodeWithName:@"Molotov"];
-    
-    // Set velocity based on x-axis acceleration
-    mainCharacter.physicsBody.velocity = CGVectorMake(_yAcceleration * 400.0f, mainCharacter.physicsBody.velocity.dy);
-    
-    return;
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if (!self.gameOver && !self.noAmmo){
         for (UITouch *touch in touches){
             CGPoint position = [touch locationInNode:self];
+            
             [self shootCockTailTowardsPosition:position];
             [self loseAmmo];
         }
@@ -145,9 +108,33 @@ CGFloat _yAcceleration;
             [node removeFromParent];
         }
         
-    WVGamePlayScene *scene = [WVGamePlayScene sceneWithSize:self.view.bounds.size];
-    [self.view presentScene:scene];
+        WVGamePlayScene *scene = [WVGamePlayScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:scene];
     }
+}
+
+- (void) logData{
+    //Logging data into Database Online
+    WVHudNode *hud = (WVHudNode*)[self childNodeWithName:@"HUD"];
+    self.finalScore = hud.score;
+    UIDevice * currentDevice = [UIDevice currentDevice];
+    NSString *deviceIDString = [currentDevice.identifierForVendor UUIDString]; //getting unique id for the user
+    
+    NSNumber *playerScoreNum = [NSNumber numberWithInt: (int) hud.score]; //converting score into NSNumber format in which Parse expect the score
+    
+    PFObject *scoreObject = [PFObject objectWithClassName:@"PLAYERSCORE"];
+    [scoreObject setObject:deviceIDString forKey:@"USER_ID"]; //user's unique id
+    
+    [scoreObject setObject:playerScoreNum forKey:@"SCORE"]; //user's score
+    [scoreObject saveInBackground]; //saving in background, so our application is not halted while saving the score.
+}
+
+- (void) didSimulatePhysics
+{
+    WVMolotovCharacterNode *mainCharacter = (WVMolotovCharacterNode*)[self childNodeWithName:@"Molotov"];
+    // Set velocity based on x-axis acceleration
+    mainCharacter.physicsBody.velocity = CGVectorMake(_yAcceleration * 400.0f, mainCharacter.physicsBody.velocity.dy);
+    return;
 }
 
 - (void) performGameOver {
@@ -155,15 +142,16 @@ CGFloat _yAcceleration;
     UIDevice * currentDevice = [UIDevice currentDevice];
     NSString *deviceIDString = [currentDevice.identifierForVendor UUIDString]; //getting unique id for the user
     
-    NSNumber *playerScoreNum = [NSNumber numberWithInt: hud.score]; //converting score into NSNumber format in which Parse expect the score
+    NSNumber *playerScoreNum = [NSNumber numberWithInt: (int) hud.score]; //converting score into NSNumber format in which Parse expect the score
 
     PFQuery *query = [PFQuery queryWithClassName:@"PLAYERSCORE"]; //creating query for Parse of Highest Score
+    
     [query whereKey:@"USER_ID" equalTo:deviceIDString];
     [query orderByDescending:@"SCORE"]; //Sorting the score so we have highest score on the top
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *scoreArray, NSError *error) {
         
-        NSNumber* hightestScore = [scoreArray.firstObject objectForKey:@"score"]; //highest score is first object
+        NSNumber* hightestScore = [scoreArray.firstObject objectForKey:@"SCORE"]; //highest score is first object
         NSLog(@"highest score %@ devise %@",hightestScore, deviceIDString);
         
         if (hightestScore < playerScoreNum){
@@ -191,12 +179,13 @@ CGFloat _yAcceleration;
 - (void) shootCockTailTowardsPosition:(CGPoint)position{
     WVMolotovCocktailNode *Cocktail = (WVMolotovCocktailNode*) [self childNodeWithName:@"CockTail"];
     WVMolotovCharacterNode *Molotov = (WVMolotovCharacterNode*)[self childNodeWithName:@"Molotov"];
-    
     Cocktail = [WVMolotovCocktailNode cocktailAtPosition:CGPointMake(Molotov.position.x, Molotov.position.y + Molotov.frame.size.height )];
+    
     [self addChild:Cocktail];
     [Cocktail performTap];
     [Cocktail moveTowardsPosition:position];
 }
+
 - (void) addAmmoToScreen {
     NSUInteger randomAmmo = [WVUtil randomWithMin:0 max:1];
     WVAmmoNode *ammo = [WVAmmoNode ammoOfType:randomAmmo];
@@ -208,7 +197,7 @@ CGFloat _yAcceleration;
 }
 
 - (void) addEnemy {
-    NSUInteger randomEnemy = [WVUtil randomWithMin:0 max:3];
+    NSUInteger randomEnemy = [WVUtil randomWithMin:0 max:1];
     WVEnemyNode *enemy = [WVEnemyNode enemyOfType:randomEnemy];
     float y = self.frame.size.height + enemy.size.height;
     float x = [WVUtil randomWithMin:10 + enemy.size.width max:self.frame.size.width - enemy.size.width - 10];
@@ -281,8 +270,7 @@ CGFloat _yAcceleration;
         
     } else if (firstBody.categoryBitMask == WVCollisionCategoryEnemy && secondBody.categoryBitMask == WVCollisionCategoryGround){
         NSLog(@"Hit Ground!");
-
-        WVEnemyNode *enemy = (WVEnemyNode *)firstBody.node;        
+        WVEnemyNode *enemy = (WVEnemyNode *)firstBody.node;
         [enemy removeFromParent];
         [self createDebrisAtPosition:contact.contactPoint];
         //[self loseLife];
@@ -371,7 +359,6 @@ CGFloat _yAcceleration;
     self.physicsWorld.gravity = CGVectorMake(0, -9.8);
     self.physicsWorld.contactDelegate = self;
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-    
     self.physicsBody.categoryBitMask = WVCollisionCategorySide;
 }
 

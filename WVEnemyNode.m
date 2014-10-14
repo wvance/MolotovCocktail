@@ -13,24 +13,40 @@
 
 + (instancetype) enemyOfType:(WVEnemyType)type{
     WVEnemyNode *enemy;
-    
-    //ANNIMATE HERE
-    //NSArray *textures;
 
     if(type == WVEnemyTypeA){
-        enemy = [self spriteNodeWithImageNamed:@"NSA"];
-        //textures = @[[SKTexture textureWithImageNamed:@"NSA"]];
+        enemy = [self spriteNodeWithImageNamed:@"Astroid_01"];
+        NSArray *textures = @[[SKTexture textureWithImageNamed:@"Astroid_01"],
+                              [SKTexture textureWithImageNamed:@"Astroid_02"],
+                              [SKTexture textureWithImageNamed:@"Astroid_03"],
+                              [SKTexture textureWithImageNamed:@"Astroid_04"],
+                              [SKTexture textureWithImageNamed:@"Astroid_05"],
+                              [SKTexture textureWithImageNamed:@"Astroid_06"],
+                              [SKTexture textureWithImageNamed:@"Astroid_07"],
+                              [SKTexture textureWithImageNamed:@"Astroid_08"],
+                              [SKTexture textureWithImageNamed:@"Astroid_09"],
+                              [SKTexture textureWithImageNamed:@"Astroid_10"],
+                              [SKTexture textureWithImageNamed:@"Astroid_11"],
+                              [SKTexture textureWithImageNamed:@"Astroid_12"],
+                              [SKTexture textureWithImageNamed:@"Astroid_13"],
+                              [SKTexture textureWithImageNamed:@"Astroid_14"],
+                              [SKTexture textureWithImageNamed:@"Astroid_15"],
+                              [SKTexture textureWithImageNamed:@"Astroid_16"],
+                              [SKTexture textureWithImageNamed:@"Astroid_17"],
+                              [SKTexture textureWithImageNamed:@"Astroid_18"],
+                              [SKTexture textureWithImageNamed:@"Astroid_19"]];
         
+        SKAction *animation = [SKAction animateWithTextures:textures timePerFrame: 0.08];
+        [enemy runAction:[SKAction repeatActionForever:animation]];
+
     } else if (type == WVEnemyTypeB){
         enemy = [self spriteNodeWithImageNamed:@"TKMLogo"];
         //textures = @[[SKTexture textureWithImageNamed:@"NSA"]];
     }else {
         enemy = [self spriteNodeWithImageNamed:@"Obama"];
     }
-    //SKAction *animation = [SKAction animateWithTextures:textures timePerFrame: 0.1];
-    //[enemy runAction:[SKAction repeatActionForever:animation]];
     
-    float scale = [WVUtil randomWithMin:10 max:20] / 100.0f;
+    float scale = [WVUtil randomWithMin:40 max:70] / 100.0f;
     enemy.xScale = scale;
     enemy.yScale = scale;
     

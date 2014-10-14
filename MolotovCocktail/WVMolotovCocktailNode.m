@@ -27,16 +27,6 @@
     return cocktail;
 }
 
-- (void) setupPhysicsBody{
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
-    self.physicsBody.categoryBitMask = WVCollisionCategoryCocktail;
-    self.physicsBody.affectedByGravity = NO;
-
-    self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategoryGround | WVCollisionCategoryPlatform;
-    self.physicsBody.mass = 10;
-
-}
-
 -(void) performTap{
     [self runAction:self.tapAction];
 }
@@ -52,29 +42,31 @@
     [self runAction:repeatAction];
 }
 
--(void) moveTowardsPosition:(CGPoint)position{
-    float slope = (position.y -self.position.y) / (position.x - self.position.x);
-    
-    float offScreenX;
-    if
-        (position.x <= self.position.x ){
-        offScreenX = -200;
-    } else {
-        offScreenX = self.parent.frame.size.width + 200;
+-(void) moveTowardsPosition:(CGPoint)position{    
+    float characterStrength = 10;
+    float yThrow;
+    float xThrow;
+    float xThrowPower;
+    float yThrowPower;
+    yThrow = 10;
+    yThrowPower = 650;
+    if (self.position.x > position.x){
+        xThrow = -1; //throw left
+        xThrowPower = self.position.x - position.x;
+    } else if (self.position.x < position.x){
+        xThrow = 1; //throw right
+        xThrowPower = position.x - self.position.x;
     }
-    
-    float offScreenY = slope * offScreenX - slope * self.position.x + self.position.y;
-    
-    CGPoint pointOffScreen = CGPointMake(offScreenX, offScreenY);
-    
-    float distanceA = pointOffScreen.y - self.position.y;
-    float distanceB = pointOffScreen.x - self.position.x;
-    float distanceC = sqrtf(powf(distanceA, 2) + powf(distanceB,2));
-    
-    float time = distanceC/WVCocktailThrowSpeed;
-    
-    SKAction *moveCocktail = [SKAction moveTo: pointOffScreen duration:time];
-    [self runAction:moveCocktail];
+    [self.physicsBody applyImpulse:CGVectorMake(xThrow * xThrowPower * characterStrength, yThrow * yThrowPower)];
+}
+
+- (void) setupPhysicsBody{
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.physicsBody.categoryBitMask = WVCollisionCategoryCocktail;
+    self.physicsBody.affectedByGravity = YES;
+    self.physicsBody.allowsRotation = YES;
+    self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategoryGround | WVCollisionCategoryPlatform;
+    self.physicsBody.mass = 10;
 }
 
 @end

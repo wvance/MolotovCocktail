@@ -17,7 +17,7 @@
     Molotov.name = @"Molotov";
     Molotov.zPosition = 9;
 
-    Molotov.                                   xScale = 3;
+    Molotov.xScale = 3;
     Molotov.yScale = 3;
     
     Molotov.position = position;
@@ -46,8 +46,6 @@
     self.physicsBody.affectedByGravity = YES;
     self.physicsBody.dynamic = YES;
     self.physicsBody.contactTestBitMask = WVCollisionCategoryEnemy | WVCollisionCategorySide | WVCollisionCategoryAmmo;
-//    CGVector impulse = CGVectorMake(1.0,1.0);
-//    [self.physicsBody applyImpulse:impulse];
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.mass = 100;
 }

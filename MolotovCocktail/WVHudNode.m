@@ -48,7 +48,7 @@
     
     SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-CondensedBlack"];
     scoreLabel.name = @"Score";
-    scoreLabel.text = @"0";
+    scoreLabel.text = @"Score: 0";
     scoreLabel.fontSize = 24;
     scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     scoreLabel.position = CGPointMake(frame.size.width-20 , -10);
@@ -57,7 +57,7 @@
     
     SKLabelNode *ammoLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue-CondensedBlack"];
     ammoLabel.name = @"Ammo";
-    ammoLabel.text = [NSString stringWithFormat:@"%d",WVStartAmmo];
+    ammoLabel.text = [NSString stringWithFormat:@"Ammo: %d",WVStartAmmo];
     ammoLabel.fontSize = 24;
     ammoLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     ammoLabel.position  = CGPointMake(frame.size.width - 200, -10);
@@ -69,7 +69,7 @@
 - (void) addPoints: (NSInteger)points{
     self.score += points;
     SKLabelNode *scoreLabel = (SKLabelNode*)[self childNodeWithName:@"Score"];
-    scoreLabel.text = [NSString stringWithFormat:@"%ld", (long) self.score];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long) self.score];
 }
 
 
@@ -90,7 +90,7 @@
     if (self.ammo > 0){
         self.ammo--;
         SKLabelNode *ammoLabel = (SKLabelNode*)[self childNodeWithName:@"Ammo"];
-        ammoLabel.text = [NSString stringWithFormat:@"%ld", (long) self.ammo];
+        ammoLabel.text = [NSString stringWithFormat:@"Ammo: %ld", (long) self.ammo];
         NSLog(@"Ammo # %ld", (long) self.ammo);
     }
     return self.ammo == 0;
@@ -99,7 +99,7 @@
 -(void) gainAmmo: (NSInteger) ammo{
     self.ammo += ammo;
     SKLabelNode *ammoLabel = (SKLabelNode*)[self childNodeWithName:@"Ammo"];
-    ammoLabel.text = [NSString stringWithFormat:@"%ld", (long) self.ammo];
+    ammoLabel.text = [NSString stringWithFormat:@"Ammo: %ld", (long) self.ammo];
 
     NSLog(@"Total Ammo! # %ld", (long) self.ammo);
 }
